@@ -20,7 +20,6 @@ for i in range(5):
     circle(5*k, 180)
 end_fill()
 
-# 
 sc = getcanvas()
 result = 0
 for x in range(-100*k, 100*k, k):
