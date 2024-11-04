@@ -70,6 +70,7 @@ def f(id):
         if el != 0: # 0 - не зависит от других
             f(el)
             maxx = max(maxx, results[el])
+            
     results[id] += maxx
 
 # Запустим
