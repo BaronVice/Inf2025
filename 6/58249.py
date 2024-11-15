@@ -1,3 +1,5 @@
+# https://inf-ege.sdamgia.ru/problem?id=58249
+
 from turtle import *
 
 k = 20
@@ -7,9 +9,6 @@ fillcolor("red")
 
 begin_fill()
 for i in range(5):
-    # Помимо поворачивания черепашки через left() и rigth()
-    # Ее можно направлять через seth() в определенном направлении
-    # 0 - восток, 90 - север, 180 - запад, 270 - юг
     seth(0)
     circle(5*k, 180)
     seth(90)

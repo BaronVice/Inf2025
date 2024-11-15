@@ -1,4 +1,4 @@
-# https://inf-ege.sdamgia.ru/problem?id=47210
+# https://inf-ege.sdamgia.ru/problem?id=47403
 
 from turtle import *
 
@@ -9,8 +9,8 @@ scale=100
 
 # При желании можно выставить размер окна: screensize(2000,2000)
 
-# Если хочется посмотреть анимацию, то tracer(1) 
-tracer(0)
+# Если хочется посмотреть анимацию, то speed(1) 
+speed(0)
 
 # pendown() - опустить хвост (рисует при передвижении)
 # При запуске хвост опущен, но пропишем все-равно это
@@ -38,6 +38,7 @@ for i in range(3):
     end_fill()
 
 penup()
+hideturtle()
 
 result = 0
 sc = getcanvas()

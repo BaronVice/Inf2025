@@ -1,8 +1,12 @@
+# https://inf-ege.sdamgia.ru/problem?id=47245
+
 from turtle import *
 left(90)
 k = 25
+hideturtle()
+
 pendown()
-tracer(0)
+speed(0)
 fillcolor("red")
 begin_fill()
 for i in range(3):
