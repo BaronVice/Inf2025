@@ -1,23 +1,12 @@
+from itertools import combinations
 a = [32,3,37,8,2,17,1]
+result =[]
+for i in range(1, 7):
+    combin = combinations(a, i)
+    for el in combin:
+        result.append(sum(el))
+print(sorted(result))
 
-result =[32,3,37,8,2,17,1,100]
-for i in range(7):
-    for j in range(7):
-        result.append(a[i] + a[j])
-
-for i in range(7):
-    for j in range(7):
-        for k in range(7):
-            if i != j and j != k and i != k:
-                result.append(a[i] + a[j] + a[k])
-
-for i in range(7):
-    for j in range(7):
-        for k in range(7):
-            for t in range(7):
-                if i != j and j != k and i != k :
-                    result.append(a[i] + a[j] + a[k])
-
-for total in range(100):
-    if total not in result:
-        print(total)
+"""
+[1, 2, 3, 3, 4, 5, 6, 8, 9, 10, 11, 11, 12, 13, 14, 17, 18, 19, 20, 20, 21, 22, 23, 25, 26, 27, 28, 28, 29, 30, 31, 32, 33, 34, 35, 35, 36, 37, 37, 38, 38, 39, 40, 40, 40, 41, 41, 42, 42, 43, 43, 43, 44, 45, 45, 46, 46, 47, 48, 48, 49, 49, 50, 50, 51, 51, 52, 52, 53, 54, 54, 55, 55, 56, 57, 57, 57, 58, 58, 59, 59, 60, 60, 60, 61, 62, 62, 63, 63, 64, 65, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 74, 75, 77, 78, 79, 80, 80, 81, 82, 83, 86, 87, 88, 89, 89, 90, 91, 92, 94, 95, 96, 97, 97, 98, 99]
+"""
