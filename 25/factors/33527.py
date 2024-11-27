@@ -24,4 +24,4 @@ for n in range(101000000, 102000000+1):
     p_pow2 = n // 2
     p = int(p_pow2 ** 0.5)
     if p**2 == p_pow2 and is_prime(p):
-        print(i)
+        print(n)
