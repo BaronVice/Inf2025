@@ -30,9 +30,21 @@ def is_prime(n):
         if n % i == 0: return False
     return True
 
-primes = [
-    prime for prime in range(2, 44722) if is_prime(prime)
-]
+primes_list = []
+erathosphenus = [0 for i in range(100_000_000)]
+erathosphenus[0] = 1,
+erathosphenus[1] = 1
+
+for i in range(100_000_000):
+    if erathosphenus[i] == 0:
+        primes_list.append(i)
+        for j in range(i, 100_000_000, i):
+            erathosphenus[j] += 1
+
+print(len(primes_list))
+max_prime = max(primes_list)
+primes_set = set(primes_list)
+print(max_prime)
 
 i = 0
 num = 1850000000
@@ -45,24 +57,24 @@ while i != 5:
     while n % 2 == 0:
         n //= 2
         a1 += 1
-        if n > 2 and is_prime(n): A *= 2
+        if n > 2 and (n in primes_set or (n > max_prime and is_prime(n))): A *= 2
     
     A *= a1
-    for prime in primes:
-        if prime > n: break
+    for prime in primes_list:
+        if prime**2 > n: break
         if n % prime != 0: continue
 
         a = 0
         while n % prime == 0:
             n //= prime
             a += 1
-            if n > prime and is_prime(n): A *= 2
+            if n > prime and (n in primes_set or (n > max_prime and is_prime(n))): A *= 2
 
         a2_to_ak.append(a)
 
     for a in a2_to_ak: A *= (1 + a)
     if A % 2 == 1:
-        print(num-1_800_000_000, A)
+        print(num-1_850_000_000, A)
         i += 1
 
     num += 2
