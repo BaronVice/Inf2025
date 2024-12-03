@@ -64,6 +64,12 @@ for i in range(n):
                         break
             # А иначе нашли тройку чисел, соответствующих условию
             if good:
-                # Ответ - минимальное по длине слово для буквы F
-                answer = min(answer, d,e,f, key=len)
+                # Если пара подходит, то выбираем элемент минимальный по длине
+                minn = min(answer, d, e, f, key=len)
+                # Если длина разная, то берем наименьшее по длине
+                if len(answer) != len(minn): answer = minn
+                # Иначе берем наименьшее числовое значение
+                else: answer = min(answer, minn)
 print(answer)
+
+
