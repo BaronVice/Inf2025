@@ -58,7 +58,6 @@ i - глубина кодирования звука/количество бит
 Разбор заданий:
 * Простое - https://github.com/BaronVice/Inf2025/blob/main/7/13593.py
 * Посложнее - https://github.com/BaronVice/Inf2025/blob/main/7/27538.py
-* Еще есть такое - https://github.com/BaronVice/Inf2025/blob/main/7/61353.py
 
 3) Передача файлов по сети
 
@@ -68,6 +67,7 @@ i - глубина кодирования звука/количество бит
 Разбор заданий:
 * Простое - https://github.com/BaronVice/Inf2025/blob/main/7/57414.py
 * Посложнее - https://github.com/BaronVice/Inf2025/blob/main/7/72565.py
+* Еще есть такое - https://github.com/BaronVice/Inf2025/blob/main/7/61353.py
 
 -- А еще --
 * В заданиях могут упоминать, что на хранения одного изображения/звукозаписи
