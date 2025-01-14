@@ -15,9 +15,6 @@ def game(amount, turn):
     # В задании не указано, что игроки играют оптимально
     # Это значит, что нам нужен хотя бы один вариант, при котором Ваня выиграет
     return game(amount + 1, turn) or game(amount + 4, turn) or game(amount * 5, turn)
-    
-
-
 
 
 for i in range(100):

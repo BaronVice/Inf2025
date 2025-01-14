@@ -13,15 +13,15 @@
 Шаг 1: откроем excel файл
 Шаг 2: Ctrl + A
 Шаг 3: Ctrl + C
-Шаг 4: Создадим папку, в которой будут лежать файлы a.py и 9.txt
-Шаг 5: В 9.txt сделаем Ctrl + V
-Шаг 6: Переходим в a.py
+Шаг 4: Создадим папку, в которой будут лежать файлы 9.py и 9.txt
+Шаг 5: В 9.txt сделаем Ctrl + V, Ctrl + S
+Шаг 6: Переходим в 9.py
 """
 
-# Пусть это файл a.py
+# Пусть это файл 9.py
 
 answer = 0
-for line in open('Inf2025\\9\\9.txt'):
+for line in open('Inf2025\\9\\9.txt', encoding="UTF8"):
     # В line лежат числа через таб
     nums = [int(num) for num in line.split()]
     # — максимальное число встречается в строке ровно один раз;
@@ -29,7 +29,7 @@ for line in open('Inf2025\\9\\9.txt'):
     # — хотя бы одно число в строке повторяется более одного раза;
     condition_2 = sum([nums.count(el) > 1 for el in nums]) >= 1
     # — максимальное число в строке превышает среднее арифметическое всех остальных чисел этой строки более чем в три раза.
-    condition_3 = max(nums) > (sum(nums)/len(nums)) * 3
+    condition_3 = max(nums) > ((sum(nums)-max(nums))/(len(nums)-1)) * 3
 
     if condition_1 and condition_2 and condition_3:
         answer += 1

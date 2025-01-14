@@ -1,6 +1,8 @@
 from sys import setrecursionlimit
-setrecursionlimit(10**8)
 
+setrecursionlimit(10**9)
+
+# TODO: lru_cache cannot be used with setrecursionlimit
 def F(n):
     # Теперь распишем, что при значении n функция будет возвращать
     # F(n) = 1 при n = 1:
