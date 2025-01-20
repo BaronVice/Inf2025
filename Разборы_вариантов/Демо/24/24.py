@@ -8,7 +8,7 @@ for i in range(1, len(s)):
     w = s[i - 1] + s[i]
     if w == "-*" or w == "*-" or w =="--" or w =="**" or (s[i-1] in "*-" and s[i] == '0' and i < len(s) and s[i+1] in '06789'):
         ans = max(ans, k)
-        if ans == 156: b = a
+        if k == 156: b = a
         a = ""
         k = 1
     else: 
