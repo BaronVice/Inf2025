@@ -47,9 +47,9 @@ print(calc(2))
 Как тогда решать?
 Возможны дополнительные переменные в рекурсии, больше if-ов, сделать два запуска рекурсии, ...
 Решения:
-1) https://github.com/BaronVice/Inf2025/blob/main/23/46981.py
-2) https://github.com/BaronVice/Inf2025/blob/main/23/13471.py
-3) https://github.com/BaronVice/Inf2025/blob/main/23/13579.py
-4) https://github.com/BaronVice/Inf2025/blob/main/23/15959.py
+1) https://github.com/BaronVice/Inf2025/blob/main/_23/46981.py
+2) https://github.com/BaronVice/Inf2025/blob/main/_23/13471.py
+3) https://github.com/BaronVice/Inf2025/blob/main/_23/13579.py
+4) https://github.com/BaronVice/Inf2025/blob/main/_23/15959.py
 
 """
