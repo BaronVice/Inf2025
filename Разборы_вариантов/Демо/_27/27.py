@@ -1,4 +1,4 @@
-f = open('Inf2025\\Разборы_вариантов\\Демо\\27\\demo_2025_27_Б.txt')
+f = open('Inf2025\\Разборы_вариантов\\Демо\\_27\\demo_2025_27_Б.txt')
 f.readline() # пропускаем первую строку, поскольку там "X	                 Y"
 
 data = [tuple(map(float, s.replace(',','.').split())) for s in f]
