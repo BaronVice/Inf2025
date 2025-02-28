@@ -1,50 +1,49 @@
-f = open("Inf2025\\_27\\27.17.B_19566.txt")
-f.readline()
-data = [tuple(map(float, i.replace(',', '.').split())) for i in f]
+f = open("Inf2025\\_27\\27.21.B_19715.txt")
+points = []
+
+for line in f:
+    point = list(map(float, line.split()))
+    points.append(point)
+
 cluster1 = []
 cluster2 = []
 cluster3 = []
 cluster4 = []
-def s(point1, point2):
-    return ((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)**0.5
 
-def edge(cluster):
-    dists = [] # здесь будут лежать пары: [сумма от точки p1 до всех остальных, p1]
-    for p1 in cluster: # для каждой точки в кластере
-        dists += [(sum(s(p1, p2) for p2 in cluster), p1)] # считаем сумму расстояний от p1 до остальных точек в кластере
-    return max(dists)[1] # и выбираем точку с максимальным расстоянием до других
-
-for point in data:
+for point in points:
     x = point[0]
     y = point[1]
-    c1 = (-13 <= x <= -7 and 9 <= y <= 17) or (x >= -7 and x <= 13 and y >= 9 and y <= 23)
-    c2 = (x >= 13 and x <= 40 and y >= 17 and y <= 32)
-    c3 = (x >= -17 and x <= -8 and y >= -9 and y <= 2) or (x >= -8 and x <= 4 and y >= -9 and y <= 5) or (x >= 4 and x <= 7 and y >= -9 and y <= -5) # //
-    c4 = (x >= 6 and x <= 31 and y >= -4 and y <= 9.5)
-    if c1: cluster1.append(point)
-    elif c2: cluster2.append(point)
-    elif c3: cluster3.append(point)
-    elif c4: cluster4.append(point)
-ans = [edge(cluster1), edge(cluster2), edge(cluster3), edge(cluster4)]
-print((ans[0][0] + ans[1][0] + ans[2][0] + ans[3][0]) / 4, (ans[0][1] + ans[1][1] + ans[2][1] + ans[3][1]) / 4)
+    if -20 >= x > -100 and 80 > y > -20 or -10 > x >= -20 and 60 > y > 0:
+        cluster1.append(point)
+    elif 90 > x > 0 and 100 > y > 0:
+        cluster2.append(point)
+    elif 0 > x > -100 and -30 > y > -120:
+        cluster3.append(point)
+    elif 100 > x > 0 and -10 > y > -110:
+        cluster4.append(point)
 
 
+def dist(p1, p2):
+    return ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)**0.5
+
+def get_centroid(cluster):
+    p_min = []
+    d_min = 10**10
+    for p1 in cluster:
+        d = 0
+        for p2 in cluster:
+            d += dist(p1, p2)
+        if d < d_min:
+            p_min = p1
+            d_min = d
+
+    return p_min
 
 
+c1 = get_centroid(cluster1)
+c2 = get_centroid(cluster2)
+c3 = get_centroid(cluster3)
+c4 = get_centroid(cluster4)
 
-
-
-
-
-
-
-
-
-
-
-# 10011101.11011100.1011100|1.11101101
-# 10011101.11011100.1011100|0.11100110
-# 11111111.11111111.1111111|0.00000000
-# 10011101.11011100.1011100|0.00000000
-
-
+print((c1[0] + c2[0] + c3[0] + c4[0]) / 4 * 10000)
+print((c1[1] + c2[1] + c3[1] + c4[1]) / 4 * 10000)

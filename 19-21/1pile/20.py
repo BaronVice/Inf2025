@@ -4,21 +4,20 @@
 # 3 - 2-ой Вани
 
 
-def game(s, turn):
-    if turn == 3 and s >= 45: return True
-    if turn == 3 and s < 45: return False
-
+def game(n, turn):
     if turn == 0:
-        return game(s + 1, turn + 1) or game(s * 2, turn + 1)
+        if n * 5 >= 70: return False
     if turn == 1:
-        if s >= 45: return False
-        
-        return game(s + 1, turn + 1) and game(s * 2, turn + 1)
+        if n * 5 >= 70: return False
     if turn == 2:
-        if s >= 45: return False
-        
-        return game(s + 1, turn + 1) or game(s * 2, turn + 1)
+        return n * 5 >= 70
+    
+    if turn == 0 or turn == 2:
+        return game(n + 1, turn+1) or game(n + 4, turn+1) or game(n * 5, turn+1)
+    else:
+        return game(n + 1, turn+1) and game(n + 4, turn+1) and game(n * 5, turn+1)
 
-for i in range(1, 45 + 1):
+
+for i in range(1, 69 + 1):
     if game(i, 0):
         print(i)
