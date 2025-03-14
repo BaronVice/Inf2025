@@ -1,23 +1,21 @@
-# 0 - 1-ый Пети
-# 1 - 1-ый Вани
-# 2 - 2-ой Пети
-# 3 - 2-ой Вани
 
 
-def game(n, turn):
-    if turn == 0:
-        if n * 5 >= 70: return False
-    if turn == 1:
-        if n * 5 >= 70: return False
-    if turn == 2:
-        return n * 5 >= 70
-    
-    if turn == 0 or turn == 2:
-        return game(n + 1, turn+1) or game(n + 4, turn+1) or game(n * 5, turn+1)
+def game(n, t):
+    if t == 0:
+        if n * 2 >= 31: return False
+    if t == 1:
+        if n * 2 >= 31: return False
+    if t == 2:
+        if n * 2 >= 31: return True
+        else: return False
+
+    if t % 2 == 0:
+        return game(n + 1, t + 1) or game(n + 2, t + 1) or game(n * 2, t + 1)
     else:
-        return game(n + 1, turn+1) and game(n + 4, turn+1) and game(n * 5, turn+1)
+        return game(n + 1, t + 1) and game(n + 2, t + 1) and game(n * 2, t + 1)
 
 
-for i in range(1, 69 + 1):
-    if game(i, 0):
-        print(i)
+for s in range(1, 30 + 1):
+    if game(s, 0):
+        print(s)
+
