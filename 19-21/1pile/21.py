@@ -1,20 +1,28 @@
-import sys
-sys.setrecursionlimit(10**9)
+def win1(n1,n2):
+    return (n1 * 2 + n2) >= 47 or (n1 + 2 + n2 + 1) >= 47 or (n1 + 1 + n2 + 2) >= 47 or (n1 + n2 * 2) >= 47
 
-def F(n,a,b):
-    if n == 6 and a == 1 and b == 1:
-        return 1
-    if n < 6:
-        return 0
-    if n == 19:
-        a = 1
-    if n == 29:
-        b = 1
-    if n == 24:
-        return 0
+def game(n1, n2, t):
+    if t == 0:
+        if win1(n1,n2):
+            return False
+        if win1(n1, n2 * 2) and win1(n1 + 1, n2 + 2) and win1(n1 + 2, n2 + 1) and win1(n1 * 2 , n2): return False
+    if t == 1:
+        if win1(n1,n2):
+            return True
+    if t == 2:
+        if win1(n1,n2):
+            return False
+    if t == 3:
+        if win1(n1,n2):
+            return True
+        else: return False
+        
+    if t % 2 == 0:
+        return game(n1 * 2, n2, t + 1) and game(n1 + 2, n2 + 1, t + 1) and game(n1 + 1, n2 + 2, t + 1) and game(n1,  n2 * 2,t + 1 ) 
+    else:
+        return game(n1 * 2, n2, t + 1) or game(n1 + 2, n2 + 1, t + 1) or game(n1 + 1, n2 + 2, t + 1) or game(n1,  n2 * 2,t + 1 )
 
 
-    return (F(n - 1,a,b) + F(n - 6,a,b) + F(n // 2,a,b))
-
-
-print (F(34,0,0)) 
+for s in range(1, 36):
+    if game(10, s, 0):
+        print(s)

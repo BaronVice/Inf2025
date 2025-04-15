@@ -1,0 +1,38 @@
+{
+    "trips": [
+        {
+            "trip_uid": "61df8808-daa0-42e0-aeff-43527c876be4",
+            "user_id": "1171879307" ,
+            "track": [
+                {
+                    "latitude": "52.2287096",
+                    "longitude": "104.3128097",
+                    "ptstop": "false",
+                    "timestamp": "2025-02-24T03:24:28.772Z",
+                    "transportTypeUsedToNextPoint": "ON_FOOT"
+                },
+                {
+                    "latitude": "52.2285737",
+                    "longitude": "104.3123827",
+                    "ptstop": "false",
+                    "timestamp": "2025-02-24T03:26:39.603Z",
+                    "transportTypeUsedToNextPoint": "ON_FOOT"
+                },
+                {
+                    "latitude": "52.3123827",
+                    "longitude": "104.312797",
+                    "ptstop": "false",
+                    "timestamp": "22025-02-24T03:27:07.635Z",
+                    "transportTypeUsedToNextPoint": "ON_FOOT"
+                },
+                {
+                    "latitude": "52.2283944",
+                    "longitude": "104.3126967",
+                    "ptstop": "false",
+                    "timestamp": "2025-02-24T03:27:16.649Z",
+                    "transportTypeUsedToNextPoint": "ON_FOOT"
+                }
+            ]
+        }
+    ]
+}
