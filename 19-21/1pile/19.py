@@ -1,34 +1,21 @@
-from sys import setrecursionlimit
 
-setrecursionlimit(10**8)
+def win(n1,n2):
+    return ((n1 * 2) + n2 >= 227) or  (n1 + (n2 * 2)  >= 227) or  ((n1 + 1) + n2 >= 227) or (n1 + (n2 + 1 )  >= 227)
 
-v = dict()
-def game(n,t):
-    if n in v:
-        return v[n]
-
+def game(n1,n2,t):
     if t == 0:
-        if n * 2 >= 333:
-            v[n] = False
+        if win(n1,n2):
             return False
     if t == 1:
-        if n * 2 >= 333:
-            v[n] = True
+        if win(n1,n2):
             return True
-        else:
-            v[n] = False
-            return False
-    
+        else: return False
+
     if t % 2 == 0:
-        res = game(n + 3, t + 1) and game(n + 8, t + 1) and game(n * 2, t + 1)
-        v[n] = res
-        return res
+        return   game(n1 * 2 ,n2, t + 1  ) or  game(n1, n2 * 2 , t + 1) or  game(n1 + 1 , n2, t + 1) or game(n1 , n2 + 1 ,  t + 1)
     else:
-        res = game(n + 3, t + 1) or game(n + 8, t + 1) or game(n * 2, t + 1)
-        v[n] = res
-        return res
+        return  game(n1 * 2 ,n2, t + 1  ) or  game(n1, n2 * 2 , t + 1) or  game(n1 + 1 , n2, t + 1) or (n1 , n2 + 1 ,  t + 1)
 
-
-for s in range(1, 332 + 1):
-    if game(s, 0):
+for s in range(1, 209 + 1):
+    if game(17,s,0):
         print(s)

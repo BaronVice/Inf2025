@@ -1,0 +1,25 @@
+f = open("Inf2025\\_26\\26_20161.txt").readlines()
+n = int(f[0])
+c1, c2 = [], []
+for i in range(n):
+    l = f[i + 1].split()
+    if int(l[1]) % 2 == 0: c1.append(int(l[0]))
+    else: c2.append(int(l[0]))
+c1.sort()
+c2.sort(reverse = True)
+k1, k2 = 7 * len(c1) // 10, 25 * len(c2) // 100
+ans1 = 0
+ans2 = 0
+ndp1, ndp2 = 0, 0
+for i in range(len(c1)):
+    if i + 1 <= k1: price = 7 * c1[i] // 10
+    else: price = 8 * c1[i] // 10
+    ans1 += price
+    ndp1 = ndp1 + c1[i] - price
+for i in range(len(c2)):
+    if i + 1 <= k2: price = 85 * c2[i] // 100
+    else: price = c2[i]
+    ans1 += price
+    ndp2 = ndp2 + c2[i] - price
+ans2 = abs(ndp1 - ndp2)
+print(ans1, ans2)
