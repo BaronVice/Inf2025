@@ -1,21 +1,20 @@
 
-def win(n1,n2):
-    return ((n1 * 2) + n2 >= 227) or  (n1 + (n2 * 2)  >= 227) or  ((n1 + 1) + n2 >= 227) or (n1 + (n2 + 1 )  >= 227)
+def win(n1):
+    return (n1-3) <= 11 or (n1-7) <= 11 or (n1//3) <= 11
 
-def game(n1,n2,t):
+def game(n1, t):
     if t == 0:
-        if win(n1,n2):
-            return False
+        if win(n1): return False
     if t == 1:
-        if win(n1,n2):
-            return True
+        if win(n1): return True
         else: return False
 
     if t % 2 == 0:
-        return   game(n1 * 2 ,n2, t + 1  ) or  game(n1, n2 * 2 , t + 1) or  game(n1 + 1 , n2, t + 1) or game(n1 , n2 + 1 ,  t + 1)
+        return game(n1-3, t+1) and game(n1-7, t+1) and game(n1//3, t+1)
     else:
-        return  game(n1 * 2 ,n2, t + 1  ) or  game(n1, n2 * 2 , t + 1) or  game(n1 + 1 , n2, t + 1) or (n1 , n2 + 1 ,  t + 1)
+        return game(n1-3, t+1) or game(n1-7, t+1) or game(n1//3, t+1)
 
-for s in range(1, 209 + 1):
-    if game(17,s,0):
+for s in range(12, 1000):
+    if game(s, 0):
         print(s)
+        break
