@@ -38,3 +38,11 @@ for i in range(len(rating)):
     if rating[i] == last_product:
         # - 1 т.к. без учета последнего продукта
         print(len(rating) - i - 1) # 444
+
+
+
+
+
+
+
+
